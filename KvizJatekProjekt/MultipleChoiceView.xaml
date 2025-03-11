@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="MilliardosWPF.Views.MultipleChoiceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Margin="20">
+        <!-- Question Text -->
+        <TextBlock Text="{Binding Kerdes_Szoveg}" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" TextWrapping="Wrap"/>
+
+        <!-- Image (Optional) -->
+        <Image Width="250" Height="150" Margin="0,0,0,10" Source="{Binding ImgSrc}" />
+
+        <!-- Answer Choices -->
+        <ListBox ItemsSource="{Binding Valaszlehetosegek}" SelectedItem="{Binding SelectedAnswer}" Margin="0,0,0,10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <RadioButton Content="{Binding}" GroupName="Answers"
+                                 IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Submit Button -->
+        <Button Content="Submit" Command="{Binding SubmitCommand}" Width="100" HorizontalAlignment="Center"/>
+    </StackPanel>
+</UserControl>

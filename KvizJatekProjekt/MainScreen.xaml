@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="MilliardosWPF.Views.MainScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+        <!-- Game Title -->
+        <TextBlock Text="Legyen Ön Is Milliomos!" 
+                   FontSize="36" FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,0,0,20" />
+
+        <!-- Start Game Button -->
+        <Button Content="Play" Width="200" Height="50" Command="{Binding StartGameCommand}" FontSize="18" />
+
+        <!-- Exit Game Button -->
+        <Button Content="Exit" Width="200" Height="50" Command="{Binding ExitCommand}" FontSize="18" />
+    </StackPanel>
+</UserControl>
