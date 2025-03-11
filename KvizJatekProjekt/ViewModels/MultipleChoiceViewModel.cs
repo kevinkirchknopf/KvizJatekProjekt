@@ -31,7 +31,7 @@ namespace MilliardosWPF.ViewModels
         {
             _question = question;
             _mainScreenViewModel = mainScreenViewModel;
-            _question.ScrambleAnswers(); // Shuffle answers
+            _question.ScrambleAnswers();
             SubmitCommand = new RelayCommands(_ => SubmitAnswer());
         }
 
@@ -39,12 +39,12 @@ namespace MilliardosWPF.ViewModels
         {
             if (string.IsNullOrEmpty(SelectedAnswer))
             {
-                MessageBox.Show("Please select an answer!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Választampd leéé!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             bool isCorrect = SelectedAnswer == _question.Jovalasz;
-            _mainScreenViewModel.SubmitAnswer(isCorrect); // Notify MainScreenViewModel of the result
+            _mainScreenViewModel.SubmitAnswer(isCorrect); 
         }
     }
 }

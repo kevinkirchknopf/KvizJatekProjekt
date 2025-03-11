@@ -32,30 +32,28 @@ namespace MilliardosWPF.ViewModels
 
         public MainScreenViewModel()
         {
-            // Initialize the context
+           
             _context = new KvizJatekContext();
 
-            // Ensure the database is created
             _context.Database.EnsureCreated();
 
-            // Seed the database if it's empty
             KvizJatekContext.Seed(_context);
 
             StartGameCommand = new RelayCommands(_ => StartGame());
             ExitCommand = new RelayCommands(_ => Application.Current.Shutdown());
 
-            // Set initial screen
+         
             CurrentView = new MainScreen();
         }
 
         private void StartGame()
         {
-            // Load all questions from the database
+           
             _questions = _context.MultipleChoices.OrderBy(x => Guid.NewGuid()).ToList();
             _currentQuestionIndex = 0;
             _score = 0;
 
-            // Show the first question
+          
             ShowNextQuestion();
         }
 
@@ -63,15 +61,15 @@ namespace MilliardosWPF.ViewModels
         {
             if (_currentQuestionIndex < _questions.Count)
             {
-                // Show the next question
+               
                 var question = _questions[_currentQuestionIndex];
                 CurrentView = new MultipleChoiceView(question, this);
             }
             else
             {
-                // No more questions, show the final score
-                MessageBox.Show($"Game Over! Your final score is: {_score}/{_questions.Count}", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
-                CurrentView = new MainScreen(); // Return to the main screen
+                
+                MessageBox.Show($" {_score}/{_questions.Count}", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
+                CurrentView = new MainScreen(); 
             }
         }
 

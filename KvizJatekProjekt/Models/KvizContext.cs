@@ -66,7 +66,7 @@ namespace KvizJatekProjekt.Data
             );
         }
 
-        // Seed the database if it's empty
+      
         public static void Seed(KvizJatekContext context)
         {
             if (!context.MultipleChoices.Any())
