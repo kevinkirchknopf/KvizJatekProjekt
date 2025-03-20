@@ -14,5 +14,7 @@
 
         <!-- Exit Game Button -->
         <Button Content="Exit" Width="200" Height="50" Command="{Binding ExitCommand}" FontSize="18" />
+        <Button Content="Főmenü" Width="200" Height="50" FontSize="18" Click="BtnOpenMainMenu_Click"/>
+
     </StackPanel>
 </UserControl>
